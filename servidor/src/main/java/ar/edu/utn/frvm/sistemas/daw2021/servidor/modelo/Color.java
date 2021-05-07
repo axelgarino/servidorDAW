@@ -17,6 +17,6 @@ public class Color {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nombreColor;
-    private String referenciaColor;
+    private String colorRGB;
     
 }
