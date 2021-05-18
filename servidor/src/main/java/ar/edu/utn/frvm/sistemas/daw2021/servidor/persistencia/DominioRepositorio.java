@@ -9,6 +9,8 @@ import org.springframework.data.repository.CrudRepository;
 @Repository
 public interface DominioRepositorio extends CrudRepository<Dominio, Long> {
 
-    
+    @Query("")
+    public Iterable<Dominio>
+    findByNombreDominioContainingIgnoreCaseAndTipo_NombreContainingIgnoreCase(String n,String t);
 
 }
