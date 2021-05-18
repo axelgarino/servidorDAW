@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.utn.frvm.sistemas.daw2021.servidor.logica.DominioServicio;
@@ -29,6 +30,15 @@ public class DominioControlador {
     @GetMapping
     public Iterable<Dominio> listarTodos() {
         return servicio.listarTodos();
+    }
+
+    @GetMapping(value="/filtrar")
+    public Iterable<Dominio> listarFiltradoPorNombreYTipo(@RequestParam(value="nombre",required = false)String nombre, @RequestParam(value="tipo",required=false)String t){
+    //public Iterable<Dominio> listarFiltradoPorNombreYTipo(@RequestParam Map<String, String> parametros){
+        //String nombre=parametros.containsKey("nombre") ? parametros.get("nombre"):"";
+        //String t=parametros.containsKey("tipo") ? parametros.get("tipo"):"";
+
+        return servicio.listarFiltradoPorNombreYTipo(nombre,t);
     }
 
     @GetMapping("/{id}")

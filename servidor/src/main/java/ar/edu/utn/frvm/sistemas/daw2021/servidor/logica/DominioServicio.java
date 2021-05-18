@@ -25,6 +25,10 @@ public class DominioServicio {
         return repositorio.findById(id);
     }
 
+    public Iterable<Dominio> listarFiltradoPorNombreYTipo(String nombre, String t) {
+        return repositorio.findByNombreDominioContainingIgnoreCaseAndTipo_NombreContainingIgnoreCase(nombre,t);
+    }
+
 	public Dominio guardar(Dominio d) {
 		return repositorio.save(d);
 	}
