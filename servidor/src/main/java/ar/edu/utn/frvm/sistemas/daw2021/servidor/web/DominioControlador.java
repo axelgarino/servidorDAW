@@ -5,6 +5,7 @@ package ar.edu.utn.frvm.sistemas.daw2021.servidor.web;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +32,26 @@ public class DominioControlador {
     public Iterable<Dominio> listarTodos() {
         return servicio.listarTodos();
     }
+    
+    //listar todos paginado
+    @GetMapping(params = {"sort"})
+    public Iterable<Dominio> listarTodosPaginado(Pageable pagina) {
+        return servicio.listarTodos(pagina);
+    }
 
+    //listar todos filtrando por nombre
+    @GetMapping(params = {"nombre"})
+    public Iterable<Dominio> listarFiltradoPorNombre(@RequestParam String nombre) {
+        return servicio.listarFiltradoPorNombre(nombre);
+    }
+
+    //listar todos filtrando por nombre y paginado
+    @GetMapping(params = {"nombre","page"})
+    public Iterable<Dominio> listarFiltradoPorNombrePaginado(@RequestParam String nombre, Pageable pagina) {
+        return servicio.listarFiltradoPorNombrePaginado(nombre,pagina);
+    }
+
+    //Filtramos por nombre y tipo
     @GetMapping(value="/filtrar")
     public Iterable<Dominio> listarFiltradoPorNombreYTipo(@RequestParam(value="nombre",required = false)String nombre, @RequestParam(value="tipo",required=false)String t){
     //public Iterable<Dominio> listarFiltradoPorNombreYTipo(@RequestParam Map<String, String> parametros){
