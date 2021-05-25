@@ -28,7 +28,7 @@ public class ArticuloControlador {
     public Iterable<Articulo> listarTodos(){
         return servicio.listarTodos();
     }
-
+    
     @GetMapping("/{id}")
     public Optional<Articulo> listarUno(@PathVariable Long id){
         return servicio.listarUno(id);

@@ -27,7 +27,7 @@ public class DominioControlador {
     private DominioServicio servicio;
 
 
-    // GET Listar Todos
+    //Listar Todos
     @GetMapping
     public Iterable<Dominio> listarTodos() {
         return servicio.listarTodos();
@@ -61,17 +61,20 @@ public class DominioControlador {
         return servicio.listarFiltradoPorNombreYTipo(nombre,t);
     }
 
+    //Listar uno pasando id
     @GetMapping("/{id}")
     public Optional<Dominio> listarUno(@PathVariable Long id) {
         return servicio.listarUno(id);
 
     }
 
+    //Guardar
     @PostMapping
     public Dominio guardar(@RequestBody Dominio d){
         return servicio.guardar(d);
     }
 
+    //Actualizar
     @PutMapping("/{id}")
     public Dominio actualizar(@PathVariable Long id, @RequestBody Dominio d){
         if(d.getId() != id){
@@ -79,6 +82,8 @@ public class DominioControlador {
         }
         return servicio.actualizar(d);
     }
+
+    //Eliminar
     @DeleteMapping("/{id}")
     public Dominio eliminar(@PathVariable Long id){
         return servicio.eliminar(id);

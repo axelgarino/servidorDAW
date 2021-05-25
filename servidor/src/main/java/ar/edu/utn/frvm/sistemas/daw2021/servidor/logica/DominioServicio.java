@@ -22,26 +22,27 @@ public class DominioServicio {
     @Autowired
     private DominioRepositorio repositorio;
 
+    //Listar todos normal
     public Iterable<Dominio> listarTodos() {
         return repositorio.findAll();
     }
-
+    //Listar uno pasando id
     public Optional<Dominio> listarUno(Long id) {
         return repositorio.findById(id);
     }
-
+    //Listar uno pasando nombre
     public Iterable<Dominio> listarFiltradoPorNombre(String nombre) {
         return repositorio.findByNombreDominioContainingIgnoreCase(nombre);
     }
-
+    //Listar uno pasando nombre y paginado
     public Iterable<Dominio> listarFiltradoPorNombrePaginado(String nombre, Pageable pagina) {
         return repositorio.findByNombreDominioContainingIgnoreCase(nombre,pagina);
     }
-
+    //Listar uno pasando nombre y tipo
     public Iterable<Dominio> listarFiltradoPorNombreYTipo(String nombre, String t) {
         return repositorio.findByNombreDominioContainingIgnoreCaseAndTipo_NombreContainingIgnoreCase(nombre,t);
     }
-
+    //Listar todos paginado
     public Iterable<Dominio> listarTodos(Pageable pagina) {
 
         return repositorio.findAll(pagina);

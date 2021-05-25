@@ -14,9 +14,13 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface DominioRepositorio extends PagingAndSortingRepository<Dominio, Long> {
 
     @Query("")
+    //Listar uno pasando nombre y tipo
     public Iterable<Dominio> findByNombreDominioContainingIgnoreCaseAndTipo_NombreContainingIgnoreCase(String n,String t);
     
+    //Listar uno pasando nombre
     public Iterable<Dominio> findByNombreDominioContainingIgnoreCase(String nombre);
+    
+    //Listar uno pasando nombre paginado
     public Page<Dominio> findByNombreDominioContainingIgnoreCase(String nombre,Pageable pagina);
 
 }
