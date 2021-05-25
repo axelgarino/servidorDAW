@@ -39,10 +39,12 @@ public class MarcaServicio {
         return repositorio.findAll(pagina);
     }
 
+    //Guardar
     public Marca guardar(Marca m){
         return repositorio.save(m);
     }
 
+    //Actualizar
     public Marca actualizar(Marca m){
         Optional<Marca> instanciaBD=repositorio.findById(m.getId());
         if(instanciaBD.isPresent()){
@@ -51,6 +53,7 @@ public class MarcaServicio {
         return repositorio.save(m);
     }
 
+    //Eliminar
     public Marca eliminar(Long id){
         Optional<Marca> instanciaBD=repositorio.findById(id);
         if(instanciaBD.isPresent()){

@@ -38,13 +38,13 @@ public class MarcaControlador {
         return servicio.listarTodos(pagina);
     }
 
-    //listar todos filtrando por nombre
+    //listar uno filtrando por nombre
     @GetMapping(params = {"nombre"})
     public Iterable<Marca> listarFiltradoPorNombre(@RequestParam String nombre) {
         return servicio.listarFiltradoPorNombre(nombre);
     }
 
-    //listar todos filtrando por nombre y paginado
+    //listar uno filtrando por nombre y paginado
     @GetMapping(params = {"nombre","page"})
     public Iterable<Marca> listarFiltradoPorNombrePaginado(@RequestParam String nombre, Pageable pagina) {
         return servicio.listarFiltradoPorNombrePaginado(nombre,pagina);

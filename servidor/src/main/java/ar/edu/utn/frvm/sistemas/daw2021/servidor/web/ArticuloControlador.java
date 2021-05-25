@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import ar.edu.utn.frvm.sistemas.daw2021.servidor.logica.ArticuloServicio;
 import ar.edu.utn.frvm.sistemas.daw2021.servidor.modelo.Articulo;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @RestController
 @RequestMapping("/articulos")
 public class ArticuloControlador {
@@ -23,22 +26,45 @@ public class ArticuloControlador {
     @Autowired
     private ArticuloServicio servicio;
 
-
+    //Listar Todos
     @GetMapping
     public Iterable<Articulo> listarTodos(){
         return servicio.listarTodos();
     }
-    
+
+    //listar todos paginado
+    @GetMapping(params = {"sort"})
+    public Iterable<Articulo> listarTodosPaginado(Pageable pagina) {
+        return servicio.listarTodos(pagina);
+    }
+
+    //listar uno filtrando por nombre
+    @GetMapping(params = {"nombre"})
+    public Iterable<Articulo> listarFiltradoPorNombre(@RequestParam String nombre) {
+        return servicio.listarFiltradoPorNombre(nombre);
+    }
+
+    //listar uno filtrando por nombre y paginado
+    @GetMapping(params = {"nombre","page"})
+    public Iterable<Articulo> listarFiltradoPorNombrePaginado(@RequestParam String nombre, Pageable pagina) {
+        return servicio.listarFiltradoPorNombrePaginado(nombre,pagina);
+    }
+
+    //FALTA LISTAR UNO FILTRANDO POR NOMBRE Y COLOR O MARCA
+
+    //Listar uno pasando id
     @GetMapping("/{id}")
     public Optional<Articulo> listarUno(@PathVariable Long id){
         return servicio.listarUno(id);
     }
 
+    //Guardar
     @PostMapping
     public Articulo guardar(@RequestBody Articulo m){
         return servicio.guardar(m);
     }
 
+    //Actualizar
     @PutMapping("/{id}")
     public Articulo actualizar(@PathVariable Long id, @RequestBody Articulo m){
         if(m.getId() != id){
@@ -47,6 +73,7 @@ public class ArticuloControlador {
         return servicio.actualizar(m);
     }
 
+    //Eliminar
     @DeleteMapping("/{id}")
     public Articulo eliminar(@PathVariable Long id){
         return servicio.eliminar(id);
