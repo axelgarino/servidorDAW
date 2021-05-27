@@ -40,6 +40,10 @@ public class ArticuloServicio{
     }
 
     //FALTA LISTAR UNO FILTRANDO POR NOMBRE Y COLOR O MARCA
+    //Listar uno pasando nombre y tipo
+    public Iterable<Articulo> listarFiltradoPorNombreYMarca(String nombre, String m) {
+        return repositorio.findByNombreArticuloContainingIgnoreCaseAndMarcaArticulo_NombreMarcaContainingIgnoreCase(nombre,m);
+    }
 
     //Guardar
     public Articulo guardar(Articulo m){

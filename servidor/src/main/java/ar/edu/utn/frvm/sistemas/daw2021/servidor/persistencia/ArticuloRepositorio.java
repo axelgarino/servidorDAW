@@ -21,5 +21,8 @@ public interface ArticuloRepositorio extends PagingAndSortingRepository<Articulo
      public Page<Articulo> findByNombreArticuloContainingIgnoreCase(String nombre,Pageable pagina);
 
     //FALTA LISTAR UNO FILTRANDO POR NOMBRE Y COLOR O MARCA
+    @Query("")
+    //Listar uno pasando nombre y tipo
+    public Iterable<Articulo> findByNombreArticuloContainingIgnoreCaseAndMarcaArticulo_NombreMarcaContainingIgnoreCase(String n,String m);
     
 }

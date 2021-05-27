@@ -58,6 +58,12 @@ public class ArticuloControlador {
         return servicio.listarUno(id);
     }
 
+    //Filtramos por nombre y tipo
+    @GetMapping(value="/filtrar")
+    public Iterable<Articulo> listarFiltradoPorNombreYMarca(@RequestParam(value="nombre",required = false)String nombre, @RequestParam(value="marcaArticulo",required=false)String m){
+        return servicio.listarFiltradoPorNombreYMarca(nombre,m);
+    }
+
     //Guardar
     @PostMapping
     public Articulo guardar(@RequestBody Articulo m){
