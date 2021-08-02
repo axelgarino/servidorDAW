@@ -53,7 +53,7 @@ public class ArticuloServicio{
     //Actualizar
     public Articulo actualizar(Articulo m){
         Optional<Articulo> instanciaBD=repositorio.findById(m.getId());
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         return repositorio.save(m);
@@ -62,7 +62,7 @@ public class ArticuloServicio{
     //Eliminar
     public Articulo eliminar(Long id){
         Optional<Articulo> instanciaBD=repositorio.findById(id);
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         repositorio.deleteById(id);

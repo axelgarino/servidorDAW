@@ -4,6 +4,7 @@ package ar.edu.utn.frvm.sistemas.daw2021.servidor.web;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import ar.edu.utn.frvm.sistemas.daw2021.servidor.modelo.Marca;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/marcas")
 public class MarcaControlador {
@@ -65,6 +67,8 @@ public class MarcaControlador {
     //Actualizar
     @PutMapping("/{id}")
     public Marca actualizar(@PathVariable Long id, @RequestBody Marca m){
+        System.out.println(("getID:" + (m.getId())));
+        System.out.println(("ID:" + (id)));
         if(m.getId() != id){
             throw new RuntimeException("El ID no coincide");
         }

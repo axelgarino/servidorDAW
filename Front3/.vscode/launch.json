@@ -1,0 +1,14 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "pwa-chrome",
+			"request": "launch",
+			"name": "Open dominio.component.html",
+			"file": "c:\\Proyectos\\UTN\\Materias\\2021\\frontend\\daw2021-frontend\\src\\app\\dominio\\dominio.component.html"
+		}
+	]
+}

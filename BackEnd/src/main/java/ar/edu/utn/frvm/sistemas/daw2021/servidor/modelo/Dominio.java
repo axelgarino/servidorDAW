@@ -26,7 +26,7 @@ public class Dominio {
     private Long id;
     private String nombreDominio;
 
-    private Boolean vencido;
+    private Boolean vencido=false;
 
     private Date fechaCreacion=new Date();
 

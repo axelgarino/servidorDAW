@@ -47,7 +47,7 @@ public class MarcaServicio {
     //Actualizar
     public Marca actualizar(Marca m){
         Optional<Marca> instanciaBD=repositorio.findById(m.getId());
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         return repositorio.save(m);
@@ -56,7 +56,7 @@ public class MarcaServicio {
     //Eliminar
     public Marca eliminar(Long id){
         Optional<Marca> instanciaBD=repositorio.findById(id);
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         repositorio.deleteById(id);

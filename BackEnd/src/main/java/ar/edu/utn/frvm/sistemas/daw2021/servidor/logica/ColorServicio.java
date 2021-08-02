@@ -40,7 +40,7 @@ public class ColorServicio {
 
     public Color actualizar(Color m){
         Optional<Color> instanciaBD=repositorio.findById(m.getId());
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         return repositorio.save(m);
@@ -48,7 +48,7 @@ public class ColorServicio {
 
     public Color eliminar(Long id){
         Optional<Color> instanciaBD=repositorio.findById(id);
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         repositorio.deleteById(id);

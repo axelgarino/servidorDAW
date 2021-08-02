@@ -57,19 +57,19 @@ public class DominioServicio {
 	public Dominio actualizar(Dominio d) {
 
         Optional<Dominio> instanciaBD=repositorio.findById(d.getId());
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
-        if (instanciaBD.get().getVencido()){
+        if (instanciaBD.get().getVencido() ==null || instanciaBD.get().getVencido()){
             throw new RuntimeException("El dominio esta vencido no se puede modificar");
         }
-
+        d.setFechaCreacion(instanciaBD.get().getFechaCreacion());
 		return repositorio.save(d);
 	}
 
 	public Dominio eliminar(Long id) {
         Optional<Dominio> instanciaBD=repositorio.findById(id);
-        if(instanciaBD.isPresent()){
+        if(!instanciaBD.isPresent()){
             throw new RuntimeException("El id no existe");
         }
         repositorio.deleteById(id);
