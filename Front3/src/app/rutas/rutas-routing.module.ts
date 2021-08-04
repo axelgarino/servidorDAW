@@ -1,7 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
+import { ColorNuevoComponent } from '../color/color-nuevo/color-nuevo.component';
+import { ColorComponent } from '../color/color.component';
 import { DominioNuevoComponent } from '../dominio/dominio-nuevo/dominio-nuevo.component';
 import { DominioComponent } from '../dominio/dominio.component';
-
 import { InicioComponent } from '../inicio/inicio.component';
 import { LoginComponent } from '../login/login.component';
 import { MarcaNuevaComponent } from '../marca/marca-nueva/marca-nueva.component';
@@ -15,6 +16,8 @@ const routes: Routes = [
 	{ path: 'dominios/:id', component: DominioNuevoComponent, canActivate : [Authguard] },
 	{ path: 'marcas', component: MarcaComponent, canActivate : [Authguard] },
 	{ path: 'marcas/:id', component: MarcaNuevaComponent, canActivate : [Authguard] },
+	{ path: 'colores', component: ColorComponent, canActivate : [Authguard] },
+	{ path: 'colores/:id', component: ColorNuevoComponent, canActivate : [Authguard] },
 	{ path: '**', redirectTo : 'inicio' },
 ];
 
