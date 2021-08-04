@@ -8,7 +8,7 @@
       <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <!--NOMBRE-->
     <div class="form-group">
-      <label for="nombre">Nombre</label>
+      <label for="nombre">Nombre color</label>
       <input type="text" formControlName="nombre" class="form-control" placeholder="Ingrese el nombre de un color"
         [ngClass]="{ 'is-invalid' : enviado && formulario.controls.nombre.errors }">
       <div *ngIf="enviado && formulario.controls.nombre.errors" class="invalid-feedback">
