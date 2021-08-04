@@ -1,4 +1,5 @@
 <app-header></app-header>
+<br>
 <div class="container">
 	<h1>Colores</h1>
 	<form [formGroup]="filtrarColoresForm">
@@ -15,7 +16,7 @@
 			<tr>
 				<th scope="col">#</th>
 				<th scope="col" (click)="ordenar('nombre')">Nombre color <i class="fas" [ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i> </th>
-				<th scope="col">Codigo RGB</th>
+				<th scope="col" (click)="ordenar('nombre')">Codigo RGB <i class="fas" [ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i> </th>
 				<th scope="col">Acciones</th>
 			</tr>
 <!--

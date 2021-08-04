@@ -1,0 +1,46 @@
+<app-header></app-header>
+<br>
+<div class="container">
+
+  <h4 class="mb-4 text-muted">{{titulo}}</h4>
+
+  <div class="row">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <!--NOMBRE-->
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" formControlName="nombre" class="form-control" placeholder="Ingrese el nombre del articulo"
+          [ngClass]="{ 'is-invalid' : enviado && formulario.controls.nombre.errors }">
+        <div *ngIf="enviado && formulario.controls.nombre.errors" class="invalid-feedback">
+          <div *ngIf="formulario.controls.nombre.errors.required">Debe ingresar su nombre de usuario</div>
+        </div>
+      </div>
+      <br>
+      <!--Descripcion-->
+      <div class="form-group">
+        <label for="descripcion">Descripcion</label>
+        <input type="text" formControlName="descripcion" class="form-control" placeholder="Ingrese descripcion del articulo"
+          [ngClass]="{ 'is-invalid' : enviado && formulario.controls.descripcion.errors }">
+        <div *ngIf="enviado && formulario.controls.descripcion.errors" class="invalid-feedback">
+          <div *ngIf="formulario.controls.descripcion.errors.required">Debe ingresar su nombre de usuario</div>
+        </div>
+      </div>
+      <br>
+      <!--Precio-->
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="text" formControlName="precio" class="form-control"  placeholder="Ingrese precio del articulo"
+          [ngClass]="{ 'is-invalid' : enviado && formulario.controls.precio.errors }">
+        <div *ngIf="enviado && formulario.controls.precio.errors" class="invalid-feedback">
+          <div *ngIf="formulario.controls.precio.errors.required">Debe ingresar su nombre de usuario</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-success">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

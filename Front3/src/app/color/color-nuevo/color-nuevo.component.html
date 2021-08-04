@@ -1,4 +1,5 @@
 <app-header></app-header>
+<br>
 <div class="container">
 
   <h4 class="mb-4 text-muted">{{titulo}}</h4>
@@ -8,7 +9,7 @@
         <!--NOMBRE-->
     <div class="form-group">
       <label for="nombre">Nombre</label>
-      <input type="text" formControlName="nombre" class="form-control"
+      <input type="text" formControlName="nombre" class="form-control" placeholder="Ingrese el nombre de un color"
         [ngClass]="{ 'is-invalid' : enviado && formulario.controls.nombre.errors }">
       <div *ngIf="enviado && formulario.controls.nombre.errors" class="invalid-feedback">
         <div *ngIf="formulario.controls.nombre.errors.required">Debe ingresar su nombre de usuario</div>
@@ -17,8 +18,8 @@
     <br>
         <!--colorRGB-->
         <div class="form-group">
-          <label for="colorRGB">colorRGB</label>
-          <input type="text" formControlName="colorRGB" class="form-control"
+          <label for="colorRGB">Código RGB</label>
+          <input type="text" formControlName="colorRGB" class="form-control" placeholder="Ingrese código RGB del color"
             [ngClass]="{ 'is-invalid' : enviado && formulario.controls.colorRGB.errors }">
           <div *ngIf="enviado && formulario.controls.colorRGB.errors" class="invalid-feedback">
             <div *ngIf="formulario.controls.colorRGB.errors.required">Debe ingresar su nombre de usuario</div>
