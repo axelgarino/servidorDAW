@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ColorService } from '../services/color.service';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-color',
@@ -45,6 +46,36 @@ export class ColorComponent implements OnInit {
 	ver(id: number) {
 		this.router.navigate(["colores" , id]);
 		//Router ir a /dominios/:id
+	}
+
+	eliminar(id: any){
+		Swal.fire({
+			title: '¿Está seguro que quiere eliminar este color?',
+			text: "Esta accion sera irreversible y el color será totalmente eliminado.",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Aceptar',
+			cancelButtonText: 'Cancelar'
+		}).then((result) => {
+			if (result.value) {
+				this.servicioColores.eliminar(id).subscribe((rta) => {
+					this.router.navigate(["colores"]);
+					this.cargarDatos();
+				}, (error) => {
+					Swal.fire({
+						title: 'Error',
+						text: "Este color no pudo ser eliminado, intentelo mas tarde",
+						icon: 'error',
+						showCancelButton: false,
+						confirmButtonColor: '#3085d6',
+						cancelButtonColor: '#d33',
+						confirmButtonText: 'Aceptar'
+					})
+				});
+			}
+		})
 	}
 
 	get f() {

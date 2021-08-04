@@ -33,6 +33,10 @@ export class ColorService {
 		return this.http.get(environment.url + 'colores/' + id);
 	}
 
+	eliminar(id:any){
+		return this.http.delete(environment.url+'colores/'+id);
+	}
+
 	// guardar(instancia : Dominio) {
 		
 	// }

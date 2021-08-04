@@ -66,7 +66,7 @@ export class ArticuloNuevoComponent implements OnInit {
 		}else{
 			Swal.fire({
 				title: 'Esta seguro que desea continuar?',
-				text: "You won't be able to revert this!",
+				text: "¡No podrás revertir esto!",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',

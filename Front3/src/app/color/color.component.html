@@ -4,9 +4,10 @@
 	<h1>Colores</h1>
 	<form [formGroup]="filtrarColoresForm">
 		<div class="input-group mb-3">
-			<input type="text" class="form-control" placeholder="Ingrese su búsqueda..."  (keyup)="keyPress($event)"
+			<input type="text" class="form-control" placeholder="Ingrese su búsqueda..." (keyup)="keyPress($event)"
 				formControlName="filtro">
-			<button class="btn btn-outline-secondary" type="button" (click)="filtrar()" id="button-addon1">Buscar</button>
+			<button class="btn btn-outline-secondary" type="button" (click)="filtrar()"
+				id="button-addon1">Buscar</button>
 			<button class="btn btn-outline-danger" type="button" (click)="limpiar()" id="button-addon1">Limpiar</button>
 			<button class="btn btn-success" type="button" (click)="nuevoColor()" id="button-addon1">Nuevo</button>
 		</div>
@@ -15,29 +16,25 @@
 		<thead>
 			<tr>
 				<th scope="col">#</th>
-				<th scope="col" (click)="ordenar('nombre')">Nombre color <i class="fas" [ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i> </th>
-				<th scope="col" (click)="ordenar('nombre')">Codigo RGB <i class="fas" [ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i> </th>
-				<th scope="col">Acciones</th>
-			</tr>
-<!--
-	<tr>
-				<th scope="col"></th>
-				<th scope="col"><input class="form-control"></th>
-				<th scope="col">
-					<input class="form-control" type="date">
-					<input class="form-control" type="date">
+				<th scope="col" (click)="ordenar('nombre')">Nombre color <i class="fas"
+						[ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i>
 				</th>
-				<th scope="col"></th>
+				<th scope="col" (click)="ordenar('nombre')">Codigo RGB <i class="fas"
+					[ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i>
+			</th>
+			<th scope="col" style="padding-left: 50px;">Acciones</th>
 			</tr>
--->
-			
+
 		</thead>
 		<tbody>
 			<tr *ngFor="let d of colores">
 				<th scope="row">{{d.id}}</th>
 				<td>{{d.nombreColor}}</td>
 				<td>{{d.colorRGB}}</td>
-				<td><button type="button" class="btn btn-primary" (click)="ver(d.id)">Editar</button></td>
+				<td><button type="button" class="btn btn-primary" (click)="ver(d.id)">Editar</button>
+					<button type="button" class="btn btn-outline-danger" (click)="eliminar(d.id)"
+						style="margin: 10px;">Eliminar</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>

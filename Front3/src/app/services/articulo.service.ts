@@ -33,6 +33,10 @@ export class ArticuloService {
 		return this.http.get(environment.url + 'articulos/' + id);
 	}
 
+	eliminar(id:any){
+		return this.http.delete(environment.url+'articulos/'+id);
+	}
+
 }
 
 
