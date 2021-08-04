@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container">
+  <br>
+  <h4 class="mb-4 text-muted">{{titulo}}</h4>
+  <div class="row">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre de la Marca</label>
+      <input type="text" formControlName="nombre" class="form-control" placeholder="Ingrese el nombre de la nueva marca"
+        [ngClass]="{ 'is-invalid' : enviado && formulario.controls.nombre.errors }">
+      <div *ngIf="enviado && formulario.controls.nombre.errors" class="invalid-feedback">
+        <div *ngIf="formulario.controls.nombre.errors.required">Debe ingresar su nombre de usuario</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="descripcion">Descripcion de la Marca</label>
+      <input type="text" formControlName="descripcion" class="form-control" placeholder="Ingrese la descripcion de la nueva marca"
+        [ngClass]="{ 'is-invalid' : enviado && formulario.controls.descripcion.errors }">
+      <div *ngIf="enviado && formulario.controls.descripcion.errors" class="invalid-feedback">
+        <div *ngIf="formulario.controls.descripcion.errors.required">Debe ingresar su nombre de usuario</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <button class="btn btn-success">
+        Guardar
+      </button>
+    </div>
+  </form>
+  </div>
+</div>
+
+<hr>
+<app-footer></app-footer>

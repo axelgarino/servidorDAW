@@ -4,6 +4,8 @@ import { DominioComponent } from '../dominio/dominio.component';
 
 import { InicioComponent } from '../inicio/inicio.component';
 import { LoginComponent } from '../login/login.component';
+import { MarcaNuevaComponent } from '../marca/marca-nueva/marca-nueva.component';
+import { MarcaComponent } from '../marca/marca.component';
 import { Authguard } from '../services/authguard.service';
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
 	{ path: 'inicio', component: InicioComponent, canActivate : [Authguard] },
 	{ path: 'dominios', component: DominioComponent, canActivate : [Authguard] },
 	{ path: 'dominios/:id', component: DominioNuevoComponent, canActivate : [Authguard] },
+	{ path: 'marcas', component: MarcaComponent, canActivate : [Authguard] },
+	{ path: 'marcas/:id', component: MarcaNuevaComponent, canActivate : [Authguard] },
 	{ path: '**', redirectTo : 'inicio' },
 ];
 
