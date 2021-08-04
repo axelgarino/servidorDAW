@@ -89,7 +89,7 @@ export class MarcaNuevaComponent implements OnInit {
 						this.marca.nombreMarca = this.f.nombre.value;
 						this.marca.descripcionMarca = this.f.descripcion.value;
 						this.servicioMarca.actualizar(this.marca).subscribe((rta) => {
-							Swal.fire({ icon: 'success', title: 'Exito', allowOutsideClick: false, text: 'Texto' });
+							Swal.fire({ icon: 'success', title: 'Exito', allowOutsideClick: false, });
 							this.router.navigate(["marcas"]);
 						}, (error) => {
 							console.error(error);

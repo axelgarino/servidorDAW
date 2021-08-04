@@ -16,6 +16,8 @@ import { MarcaComponent } from './marca/marca.component';
 import { MarcaNuevaComponent } from './marca/marca-nueva/marca-nueva.component';
 import { ColorComponent } from './color/color.component';
 import { ColorNuevoComponent } from './color/color-nuevo/color-nuevo.component';
+import { ArticuloComponent } from './articulo/articulo.component';
+import { ArticuloNuevoComponent } from './articulo/articulo-nuevo/articulo-nuevo.component';
 
 
 
@@ -32,6 +34,8 @@ import { ColorNuevoComponent } from './color/color-nuevo/color-nuevo.component';
 	    MarcaNuevaComponent,
 	    ColorComponent,
 	    ColorNuevoComponent,
+	    ArticuloComponent,
+	    ArticuloNuevoComponent,
   ],
   imports: [
 	  BrowserModule,
