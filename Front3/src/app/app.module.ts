@@ -12,6 +12,8 @@ import { appRoutingModule } from './rutas/rutas-routing.module';
 import { InicioComponent } from './inicio/inicio.component';
 import { DominioComponent } from './dominio/dominio.component';
 import { DominioNuevoComponent } from './dominio/dominio-nuevo/dominio-nuevo.component';
+import { ColorComponent } from './color/color.component';
+import { ColorNuevoComponent } from './color/color-nuevo/color-nuevo.component';
 
 
 
@@ -24,6 +26,8 @@ import { DominioNuevoComponent } from './dominio/dominio-nuevo/dominio-nuevo.com
 	    InicioComponent,
 	    DominioComponent,
 	    DominioNuevoComponent,
+	    ColorComponent,
+	    ColorNuevoComponent,
   ],
   imports: [
 	  BrowserModule,
