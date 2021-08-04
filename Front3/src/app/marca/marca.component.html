@@ -16,7 +16,7 @@
 				<th scope="col">#</th>
 				<th scope="col" (click)="ordenar('nombre')">Nombre Marca <i class="fas" [ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i> </th>
 				<th scope="col" (click)="ordenar('nombre')">Descripcion Marca <i class="fas" [ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i> </th>
-				<th scope="col">Acciones</th> 
+				<th scope="col" style="padding-left: 50px;">Acciones</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -24,7 +24,8 @@
 				<th scope="row">{{m.id}}</th>
 				<td>{{m.nombreMarca}}</td>
 				<td>{{m.descripcionMarca}}</td>
-				<td><button type="button" class="btn btn-primary" (click)="ver(m.id)">Editar</button></td>
+				<td><button type="button" class="btn btn-primary" (click)="ver(m.id)">Editar</button>
+				<button type="button" class="btn btn-outline-danger" (click)="eliminar(m.id)" style="margin: 10px;">Eliminar</button></td>
 			</tr>
 		</tbody>
 	</table>

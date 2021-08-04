@@ -33,6 +33,10 @@ export class MarcaService {
 		return this.http.get(environment.url + 'marcas/' + id);
 	}
 
+	eliminar(id:any){
+		return this.http.delete(environment.url+'marcas/'+id);
+	}
+
 }
 
 
