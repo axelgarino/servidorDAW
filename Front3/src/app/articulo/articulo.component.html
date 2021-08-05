@@ -19,10 +19,10 @@
 				<th scope="col" (click)="ordenar('nombre')">Nombre articulo <i class="fas"
 						[ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i>
 				</th>
-				<th scope="col" (click)="ordenar('nombre')">Descripcion <i class="fas"
+				<th scope="col" (click)="ordenar('descripcion')">Descripcion <i class="fas"
 						[ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i>
 				</th>
-				<th scope="col" (click)="ordenar('nombre')">Precio <i class="fas"
+				<th scope="col" (click)="ordenar('precio')">Precio <i class="fas"
 						[ngClass]="{'fa-chevron-down' : orderNombreDesc !== undefined && orderNombreDesc,'fa-chevron-up' : orderNombreDesc !== undefined && !orderNombreDesc }"></i>
 				</th>
 				<th scope="col" (click)="ordenar('nombre')">Marca <i class="fas"
@@ -41,11 +41,11 @@
 				<td>{{d.nombreArticulo}}</td>
 				<td>{{d.descripcionArticulo}}</td>
 				<td>{{d.precioArticulo}}</td>
-				<td>{{d.marcaArticulo}}</td>
-				<td>{{d.colorArticulo}}</td>
+				<td>{{d.marcaArticulo.nombreMarca}}</td>
+				<td>{{d.colorArticulo.nombreColor}}</td>
 				<td><button type="button" class="btn btn-primary" (click)="ver(d.id)">Editar</button>
 					<button type="button" class="btn btn-outline-danger" (click)="eliminar(d.id)"
-						style="margin: 10px;">Eliminar</button>
+						style="margin: 3px;">Eliminar</button>
 				</td>
 			</tr>
 		</tbody>

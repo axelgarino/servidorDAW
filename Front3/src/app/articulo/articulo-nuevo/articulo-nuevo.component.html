@@ -35,6 +35,62 @@
           <div *ngIf="formulario.controls.precio.errors.required">Debe ingresar su nombre de usuario</div>
         </div>
       </div>
+      <!--Marca
+      <div class="form-group">
+        <label for="Marcas">Marca</label>
+        <select  formControlName="marca" class="form-control" 
+          [ngClass]="{ 'is-invalid' : enviado && formulario.controls.marca.errors }">
+          <option [ngValue]="m" *ngFor="let m of marcas">{{ m.nombreMarca }}</option>
+        </select>
+        <div *ngIf="enviado && formulario.controls.marca.errors" class="invalid-feedback">
+          <div *ngIf="formulario.controls.marca.errors.required">Debe ingresar su nombre de usuario</div>
+        </div>
+      </div>-->
+      <!--Marca nuevo-->
+      <div class="form-group" *ngIf="modoNuevo == true">
+        <label for="marca">Marca</label>
+        <select [(ngModel)]="marcaElegida" formControlName="marca" class="form-control">
+          <option [ngValue]="null">--Elige Marca--</option>
+          <option *ngFor="let m of marcas" [ngValue]="m">
+            {{m.nombreMarca}}
+          </option>
+        </select>
+      </div>
+      <br>
+      <!--Color nuevo-->
+      <div class="form-group" *ngIf="modoNuevo == true">
+        <label for="color">Color</label>
+        <select [(ngModel)]="colorElegido" formControlName="color" class="form-control">
+          <!--<option>--Elige Color--</option>-->
+          <option *ngFor="let c of colores" [ngValue]="c">
+            {{c.nombreColor}}
+          </option>
+        </select>
+      </div>
+      <hr>
+      <!--Marca editar-->
+      <div class="form-group" *ngIf="modoNuevo == false">
+        <label for="marca">Marca actual</label>
+        <input type="text" formControlName="marca" class="form-control" disabled>
+        <label for="marca">Nueva Marca</label>
+        <select formControlName="marcaCombo" class="form-control">
+          <option *ngFor="let m of marcas" [ngValue]="m">
+            {{m.nombreMarca}}
+          </option>
+        </select>
+      </div>
+      <br>
+      <!--Color editar-->
+      <div class="form-group" *ngIf="modoNuevo == false">
+        <label for="color">Color actual</label>
+        <input type="text" formControlName="color" class="form-control" disabled>
+        <label for="color">Nuevo Color</label>
+        <select formControlName="colorCombo" class="form-control">
+          <option *ngFor="let c of colores" [ngValue]="c">
+            {{c.nombreColor}}
+          </option>
+        </select>
+      </div>
       <br>
       <div class="form-group">
         <button class="btn btn-success">

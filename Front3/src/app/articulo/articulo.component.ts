@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticuloService } from '../services/articulo.service';
 import Swal from 'sweetalert2';
+import { MarcaService } from '../services/marca.service';
+import { ColorService } from '../services/color.service';
 
 @Component({
 	selector: 'app-articulo',
@@ -14,8 +16,13 @@ export class ArticuloComponent implements OnInit {
 	filtrarArticulosForm: FormGroup;
 	articulos: any;
 	orderNombreDesc: boolean;
+	marcas: any = {};
+	colores: any = {};
 
-	constructor(private servicioArticulos: ArticuloService,
+	constructor(
+		private servicioArticulos: ArticuloService,
+		public servicioMarca: MarcaService,
+		public servicioColor: ColorService,
 		private formBuilder: FormBuilder,
 		private router : Router) { }
 
@@ -24,8 +31,18 @@ export class ArticuloComponent implements OnInit {
 			filtro: ['']
 		});
 
-		// Debo pedir los dominios al backend
+		// Debo pedir los articulos al backend
 		this.cargarDatos();
+
+		// Debo pedir las marcas al backend
+		this.servicioMarca.pedirMarcas().subscribe((resp) => {
+			this.marcas = resp;
+		  });
+
+		  // Debo pedir los colores al backend
+		this.servicioColor.pedirColores().subscribe((respuesta) => {
+			this.colores = respuesta;
+		 });
 	}
 
 	cargarDatos() {
@@ -115,10 +132,17 @@ export class ArticuloComponent implements OnInit {
 			this.orderNombreDesc = !this.orderNombreDesc;
 			//llamar al metodo de filtrar 
 			this.filtrarImpl(this.f.filtro.value, this.orderNombreDesc ? 'nombreArticulo,desc' : 'nombreArticulo,asc' );
-			
+		}
+		if (estrategia === 'descripcion') {
+			this.orderNombreDesc = !this.orderNombreDesc;
+			//llamar al metodo de filtrar 
+			this.filtrarImpl(this.f.filtro.value, this.orderNombreDesc ? 'descripcionArticulo,desc' : 'descripcionArticulo,asc' );
+		}
+		if (estrategia === 'precio') {
+			this.orderNombreDesc = !this.orderNombreDesc;
+			//llamar al metodo de filtrar 
+			this.filtrarImpl(this.f.filtro.value, this.orderNombreDesc ? 'precioArticulo,desc' : 'precioArticulo,asc' );
 		}
 	}
-
-
 }
 
