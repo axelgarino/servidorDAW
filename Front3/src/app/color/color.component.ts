@@ -63,6 +63,8 @@ export class ColorComponent implements OnInit {
 				this.servicioColores.eliminar(id).subscribe((rta) => {
 					this.router.navigate(["colores"]);
 					this.cargarDatos();
+					Swal.fire({ icon: 'success', title: 'Exito',text: '¡Color eliminado con exito!', allowOutsideClick: false, });
+
 				}, (error) => {
 					Swal.fire({
 						title: 'Error',

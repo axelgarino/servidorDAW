@@ -12,7 +12,7 @@
         <div *ngIf="formulario.controls.nombre.errors.required">Debe ingresar su nombre de usuario</div>
       </div>
     </div>
-    <br>
+    
     <div class="form-group">
       <label for="descripcion">Descripcion de la Marca</label>
       <input type="text" formControlName="descripcion" class="form-control" placeholder="Ingrese la descripcion de la nueva marca"
@@ -21,8 +21,8 @@
         <div *ngIf="formulario.controls.descripcion.errors.required">Debe ingresar su nombre de usuario</div>
       </div>
     </div>
-    <br>
-    <div class="form-group">
+    
+    <div class="form-group" style="padding-bottom: 20px;">
       <button class="btn btn-success">
         Guardar
       </button>
@@ -30,6 +30,11 @@
   </form>
   </div>
 </div>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
 
-<hr>
 <app-footer></app-footer>

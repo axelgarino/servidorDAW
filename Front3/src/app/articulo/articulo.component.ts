@@ -80,6 +80,8 @@ export class ArticuloComponent implements OnInit {
 				this.servicioArticulos.eliminar(id).subscribe((rta) => {
 					this.router.navigate(["articulos"]);
 					this.cargarDatos();
+					Swal.fire({ icon: 'success', title: 'Exito',text: '¡Articulo eliminado con exito!', allowOutsideClick: false, });
+
 				}, (error) => {
 					Swal.fire({
 						title: 'Error',

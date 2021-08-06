@@ -2,7 +2,7 @@
 <br>
 <div class="container">
 
-  <h4 class="mb-4 text-muted">{{titulo}}</h4>
+  <h4 class="mb-4 text-muted" style="padding: 2px;">{{titulo}}</h4>
 
   <div class="row">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
@@ -15,7 +15,7 @@
           <div *ngIf="formulario.controls.nombre.errors.required">Debe ingresar su nombre de usuario</div>
         </div>
       </div>
-      <br>
+      
       <!--Descripcion-->
       <div class="form-group">
         <label for="descripcion">Descripcion</label>
@@ -25,7 +25,7 @@
           <div *ngIf="formulario.controls.descripcion.errors.required">Debe ingresar su nombre de usuario</div>
         </div>
       </div>
-      <br>
+      
       <!--Precio-->
       <div class="form-group">
         <label for="precio">Precio</label>
@@ -35,19 +35,9 @@
           <div *ngIf="formulario.controls.precio.errors.required">Debe ingresar su nombre de usuario</div>
         </div>
       </div>
-      <!--Marca
-      <div class="form-group">
-        <label for="Marcas">Marca</label>
-        <select  formControlName="marca" class="form-control" 
-          [ngClass]="{ 'is-invalid' : enviado && formulario.controls.marca.errors }">
-          <option [ngValue]="m" *ngFor="let m of marcas">{{ m.nombreMarca }}</option>
-        </select>
-        <div *ngIf="enviado && formulario.controls.marca.errors" class="invalid-feedback">
-          <div *ngIf="formulario.controls.marca.errors.required">Debe ingresar su nombre de usuario</div>
-        </div>
-      </div>-->
+      
       <!--Marca nuevo-->
-      <div class="form-group" *ngIf="modoNuevo == true">
+      <div class="form-group" *ngIf="modoNuevo == true"> <!--Si el modo nuevo es true, osea estamos CREANDO NUEVO ARTICULO-->
         <label for="marca">Marca</label>
         <select [(ngModel)]="marcaElegida" formControlName="marca" class="form-control">
           <option [ngValue]="null">--Elige Marca--</option>
@@ -56,7 +46,7 @@
           </option>
         </select>
       </div>
-      <br>
+      
       <!--Color nuevo-->
       <div class="form-group" *ngIf="modoNuevo == true">
         <label for="color">Color</label>
@@ -67,7 +57,10 @@
           </option>
         </select>
       </div>
-      <hr>
+
+
+      <!-- ---------------------------------- -->
+      <!--Si el modo nuevo es false, osea estamos EDITANDO UN ARTICULO-->
       <!--Marca editar-->
       <div class="form-group" *ngIf="modoNuevo == false">
         <label for="marca">Marca actual</label>
@@ -79,7 +72,7 @@
           </option>
         </select>
       </div>
-      <br>
+      
       <!--Color editar-->
       <div class="form-group" *ngIf="modoNuevo == false">
         <label for="color">Color actual</label>
@@ -91,8 +84,8 @@
           </option>
         </select>
       </div>
-      <br>
-      <div class="form-group">
+      
+      <div class="form-group"style="padding-bottom: 1cm;">
         <button class="btn btn-success">
           Guardar
         </button>
@@ -100,3 +93,4 @@
     </form>
   </div>
 </div>
+<app-footer></app-footer>

@@ -58,6 +58,7 @@ export class MarcaComponent implements OnInit {
 				this.servicioMarcas.eliminar(id).subscribe((rta) => {
 					this.router.navigate(["marcas"]);
 					this.cargarDatos();
+					Swal.fire({ icon: 'success', title: 'Exito',text: '¡Marca eliminada con exito!', allowOutsideClick: false, });
 				}, (error) => {
 					Swal.fire({
 						title: 'Error',

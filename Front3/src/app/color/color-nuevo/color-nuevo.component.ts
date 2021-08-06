@@ -72,23 +72,25 @@ export class ColorNuevoComponent implements OnInit {
 				confirmButtonText: 'Si, claro!'
 			}).then((result) => {
 				if (result.value) {
-					//Me fijo en el modo de pantalla
+					//modo NUEVO COLOR
 					if (this.modoNuevo) {
 						var nuevoColor: any;
 						nuevoColor = {};
 						nuevoColor.nombreColor = this.f.nombre.value;
 						nuevoColor.colorRGB = this.f.colorRGB.value;
 						this.servicioColor.guardar(nuevoColor).subscribe((rta) => {
+							Swal.fire({ icon: 'success', title: 'Exito',text: '¡Color cargado con exito!', allowOutsideClick: false, });
 							this.router.navigate(["colores"]);
+
 						}, (error) => {
-							alert('Error al cargar');
+							Swal.fire({ icon: 'error', title: 'Error!!', allowOutsideClick: false, text: error.message });
 						});
 					} else {
-						//Actualizo el modelo de acuerdo a los valores de los input del formulario
+						//MODO EDITAR
 						this.color.nombreColor = this.f.nombre.value;
 						this.color.colorRGB = this.f.colorRGB.value;
 						this.servicioColor.actualizar(this.color).subscribe((rta) => {
-							Swal.fire({ icon: 'success', title: 'Exito', allowOutsideClick: false,  });
+							Swal.fire({ icon: 'success', title: 'Exito',text: '¡Color editado con exito!', allowOutsideClick: false, });
 							this.router.navigate(["colores"]);
 						}, (error) => {
 							console.error(error);

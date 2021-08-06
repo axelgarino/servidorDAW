@@ -51,7 +51,6 @@ export class MarcaNuevaComponent implements OnInit {
 	
 	onSubmit() {
 		if (this.f.nombre.value == "" || this.f.descripcion.value == "") {
-			// alert('¡Por favor complete todos los campos!')
 			Swal.fire({
 				title: '¡Complete los campos!',
 				text: "Es necesario que rellene todos los campos y no deje ninguno vacio",
@@ -73,23 +72,24 @@ export class MarcaNuevaComponent implements OnInit {
 				cancelButtonText: 'Cancelar'
 			}).then((result) => {
 				if (result.value) {
-					//Me fijo en el modo de pantalla
+					//Si estamos en MODO NUEVO:
 					if (this.modoNuevo) {
 						var nuevaMarca: any;
 						nuevaMarca = {};
 						nuevaMarca.nombreMarca = this.f.nombre.value;
 						nuevaMarca.descripcionMarca = this.f.descripcion.value;
 						this.servicioMarca.guardar(nuevaMarca).subscribe((rta) => {
+							Swal.fire({ icon: 'success', title: 'Exito',text: '¡Marca cargada con exito!', allowOutsideClick: false, });
 							this.router.navigate(["marcas"]);
 						}, (error) => {
-							alert('Error al cargar');
+							
+							Swal.fire({ icon: 'error', title: 'Error!!', allowOutsideClick: false, text: error.message });
 						});
-					} else {
-						//Actualizo el modelo de acuerdo a los valores de los input del formulario
+					} else { //MODO EDITAR:
 						this.marca.nombreMarca = this.f.nombre.value;
 						this.marca.descripcionMarca = this.f.descripcion.value;
 						this.servicioMarca.actualizar(this.marca).subscribe((rta) => {
-							Swal.fire({ icon: 'success', title: 'Exito', allowOutsideClick: false, });
+							Swal.fire({ icon: 'success', title: 'Exito',text: '¡Marca editada con exito!', allowOutsideClick: false, });
 							this.router.navigate(["marcas"]);
 						}, (error) => {
 							console.error(error);
