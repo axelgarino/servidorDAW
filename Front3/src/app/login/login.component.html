@@ -1,4 +1,19 @@
-<div class="container">
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="container-fluid">
+		<a class="navbar-brand" style="color: white; font-size: 3ch; text-align: center;"><b>RopaMia</b></a>
+		<!-- <a class="navbar-brand" style="color: white;font-size: 2ch;"> Para que renovar tu guardarropa, no sea algo estresante.</a> -->
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+	</div>
+</nav>
+
+<!-- ---------------------------------------------------- -->
+<div class="container" style="padding: 30px;">
 	<h2>Login</h2>
 	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 		<div class="form-group">
@@ -20,17 +35,32 @@
 			</div>
 		</div>
 
-		<div class="form-group">
+		<div class="form-group" style="padding-top: 3px;">
 			<button class="btn btn-primary">
 				Ingresar
 			</button>
 		</div>
 
-		{{loginForm.controls.password.errors | json}}
-
 	</form>
+</div>
 
-	<button class="btn btn-primary" (click)="pedirDominios()">
-		Dominios
-	</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!-- ------------------- FOOTER ----------------------------------- -->
+<div class="footer-basic">
+	<footer>
+		<ul class="list-inline">
+			<li class="list-inline-item">Para que renovar tu guardarropa, no sea algo estresante.</li>
+			
+		</ul>
+		<hr>
+		<div class="social"><a href="https://www.instagram.com/lucabonoris/">L</a><a href="https://www.instagram.com/franciscobortolin/">F</a><a href="https://www.instagram.com/chelogarino/">A</a></div>
+		<p class="copyright">Equipo BOGABO © DAW 2021</p>
+	</footer>
 </div>
