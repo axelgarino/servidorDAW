@@ -100,8 +100,8 @@ export class ArticuloNuevoComponent implements OnInit {
 
 	onSubmit() {
 		if (this.f.nombre.value == "" || this.f.descripcion.value == "" || this.f.precio.value == ""
-		|| this.f.marca.value == null || this.f.color.value == null 
-		|| this.f.marcaCombo.value == "" || this.f.colorCombo.value == "") {
+		|| this.f.marca.value == null || this.f.color.value == null ) {
+			// || this.f.marcaCombo.value == "" || this.f.colorCombo.value == ""
 			Swal.fire({
 				title: 'Complete los campos!',
 				text: "Es necesario que rellene todos los campos y no deje ninguno vacío",
