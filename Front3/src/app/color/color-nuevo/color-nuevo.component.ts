@@ -54,12 +54,12 @@ export class ColorNuevoComponent implements OnInit {
 		if(this.f.nombre.value == "" || this.f.colorRGB.value == "" ) {
 			Swal.fire({
 				title: 'Complete los campos!',
-				text: "Es necesraio que rellene todos los campos y no deje ninguno vacío",
+				text: "Es necesario que rellene todos los campos y no deje ninguno vacío",
 				icon: 'error',
-				showCancelButton: true,
+				showCancelButton: false,
 				confirmButtonColor: '#3085d6',
 				cancelButtonColor: '#d33',
-				confirmButtonText: 'Si, claro!'
+				confirmButtonText: 'Aceptar'
 			})
 		}else{
 			Swal.fire({

@@ -35,14 +35,14 @@ export class ArticuloComponent implements OnInit {
 		this.cargarDatos();
 
 		// Debo pedir las marcas al backend
-		this.servicioMarca.pedirMarcas().subscribe((resp) => {
-			this.marcas = resp;
-		  });
+		// this.servicioMarca.pedirMarcas().subscribe((resp) => {
+		// 	this.marcas = resp;
+		//   });
 
-		  // Debo pedir los colores al backend
-		this.servicioColor.pedirColores().subscribe((respuesta) => {
-			this.colores = respuesta;
-		 });
+		//   // Debo pedir los colores al backend
+		// this.servicioColor.pedirColores().subscribe((respuesta) => {
+		// 	this.colores = respuesta;
+		//  });
 	}
 
 	cargarDatos() {
@@ -60,9 +60,9 @@ export class ArticuloComponent implements OnInit {
 	}
 
 
-	ver(id: number) {
+	ver(id: number) { //Para poder editar un articulo
 		this.router.navigate(["articulos" , id]);
-		//Router ir a /dominios/:id
+		
 	}
 
 	eliminar(id: any){

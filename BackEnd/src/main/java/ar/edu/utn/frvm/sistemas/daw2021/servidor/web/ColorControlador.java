@@ -36,7 +36,7 @@ public class ColorControlador {
     }
 
     //listar todos paginado
-    @GetMapping(params = {"sort"})
+    @GetMapping(params = {"sort"}) ///articulos?sort=nombreArticulo
     public Iterable<Color> listarTodosPaginado(Pageable pagina) {
         return servicio.listarTodos(pagina);
     }

@@ -40,7 +40,7 @@
       <div class="form-group" *ngIf="modoNuevo == true"> <!--Si el modo nuevo es true, osea estamos CREANDO NUEVO ARTICULO-->
         <label for="marca">Marca</label>
         <select [(ngModel)]="marcaElegida" formControlName="marca" class="form-control">
-          <option [ngValue]="null">--Elige Marca--</option>
+          
           <option *ngFor="let m of marcas" [ngValue]="m">
             {{m.nombreMarca}}
           </option>

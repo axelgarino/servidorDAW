@@ -10,8 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorHttpService } from './services/interceptor-http.service';
 import { appRoutingModule } from './rutas/rutas-routing.module';
 import { InicioComponent } from './inicio/inicio.component';
-import { DominioComponent } from './dominio/dominio.component';
-import { DominioNuevoComponent } from './dominio/dominio-nuevo/dominio-nuevo.component';
 import { MarcaComponent } from './marca/marca.component';
 import { MarcaNuevaComponent } from './marca/marca-nueva/marca-nueva.component';
 import { ColorComponent } from './color/color.component';
@@ -28,8 +26,6 @@ import { ArticuloNuevoComponent } from './articulo/articulo-nuevo/articulo-nuevo
 	    FooterComponent,
 	    LoginComponent,
 	    InicioComponent,
-	    DominioComponent,
-	    DominioNuevoComponent,
 	    MarcaComponent,
 	    MarcaNuevaComponent,
 	    ColorComponent,

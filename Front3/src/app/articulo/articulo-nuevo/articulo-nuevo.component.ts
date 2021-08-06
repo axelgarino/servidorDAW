@@ -139,7 +139,7 @@ export class ArticuloNuevoComponent implements OnInit {
 
 						//marca
 						if(this.f.marcaCombo.value == "" ){
-							
+							//se dejan los valores anteriores
 						}else{
 							this.marcaCombo = this.f.marcaCombo.value;
 							this.articulo.marcaArticulo = this.marcaCombo;
@@ -147,6 +147,7 @@ export class ArticuloNuevoComponent implements OnInit {
 
 						//color
 						if(this.f.colorCombo.value == "" ){
+							//se dejan los valores anteriores
 						}else{
 							this.colorCombo = this.f.colorCombo.value;
 							this.articulo.colorArticulo = this.colorCombo;
